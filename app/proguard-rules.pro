@@ -1,7 +1,10 @@
 # Proguard / R8 Optimization & Retention Rules for Downloader
 
+# Keep general reflection attributes
+-keepattributes *Annotation*,EnclosingMethod,InnerClasses,Signature,SourceFile,LineNumberTable
+
 # 1. Keep native method declarations and JNI bindings
--keepclassmembers class * {
+-keepclasseswithmembers class * {
     native <methods>;
 }
 
@@ -10,6 +13,14 @@
 -dontwarn com.yausername.**
 -keep class io.github.junkfood02.** { *; }
 -dontwarn io.github.junkfood02.**
+
+# youtubedl dependencies: Apache Commons Compress, Commons IO, Jackson
+-keep class org.apache.commons.compress.** { *; }
+-dontwarn org.apache.commons.compress.**
+-keep class org.apache.commons.io.** { *; }
+-dontwarn org.apache.commons.io.**
+-keep class com.fasterxml.jackson.** { *; }
+-dontwarn com.fasterxml.jackson.**
 
 # Keep yt-dlp JSON mapper models
 -keepclassmembers class com.yausername.youtubedl_android.mapper.** { *; }
