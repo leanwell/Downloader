@@ -1,0 +1,28 @@
+*.iml
+.gradle
+.kotlin
+/local.properties
+local.properties
+.idea/
+.DS_Store
+/build
+build/
+app/build/
+/captures
+captures/
+.externalNativeBuild
+.cxx
+*.apk
+*.aab
+
+# Internal directives and documentation
+directives/
+
+# Secrets, Keystores & Environment
+.env
+.env.*
+!.env.example
+credentials.json
+token.json
+*.keystore
+*.jks
