@@ -77,7 +77,6 @@ fun FileActionsBottomSheet(
                 .navigationBarsPadding()
                 .padding(bottom = 24.dp)
         ) {
-            // Header: Title & Info
             Column(modifier = Modifier.fillMaxWidth()) {
                 Text(
                     text = mediaItem.title,
@@ -100,7 +99,6 @@ fun FileActionsBottomSheet(
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            // Action Items List
             ActionRow(
                 icon = Icons.Rounded.PlayArrow,
                 title = "Play in Downloader",

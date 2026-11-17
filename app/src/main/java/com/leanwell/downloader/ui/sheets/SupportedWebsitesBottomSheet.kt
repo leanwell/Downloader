@@ -70,7 +70,6 @@ fun SupportedWebsitesBottomSheet(
                 .verticalScroll(rememberScrollState())
                 .padding(bottom = 28.dp)
         ) {
-            // Header Row
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
@@ -107,7 +106,6 @@ fun SupportedWebsitesBottomSheet(
 
             Spacer(modifier = Modifier.height(18.dp))
 
-            // Platform 1: YouTube
             PlatformFeatureCard(
                 name = "YouTube",
                 tagline = "Videos, Shorts, Music & Playlists",
@@ -124,7 +122,6 @@ fun SupportedWebsitesBottomSheet(
 
             Spacer(modifier = Modifier.height(14.dp))
 
-            // Platform 1B: YouTube Music
             PlatformFeatureCard(
                 name = "YouTube Music",
                 tagline = "Tracks, Albums & Playlists",
@@ -141,7 +138,6 @@ fun SupportedWebsitesBottomSheet(
 
             Spacer(modifier = Modifier.height(14.dp))
 
-            // Platform 1C: Spotify (SpotDL Resolver)
             PlatformFeatureCard(
                 name = "Spotify",
                 tagline = "Tracks, Playlists & Albums (SpotDL Resolver)",
@@ -158,7 +154,6 @@ fun SupportedWebsitesBottomSheet(
 
             Spacer(modifier = Modifier.height(14.dp))
 
-            // Platform 2: Facebook with genuine FB logo
             PlatformFeatureCard(
                 name = "Facebook",
                 tagline = "Reels, Watch & Public Videos",
@@ -173,7 +168,6 @@ fun SupportedWebsitesBottomSheet(
 
             Spacer(modifier = Modifier.height(14.dp))
 
-            // Platform 3: TikTok
             PlatformFeatureCard(
                 name = "TikTok",
                 tagline = "Watermark-Free HD Videos & Music",
@@ -188,7 +182,6 @@ fun SupportedWebsitesBottomSheet(
 
             Spacer(modifier = Modifier.height(14.dp))
 
-            // Platform 4: Instagram
             PlatformFeatureCard(
                 name = "Instagram",
                 tagline = "Reels, Posts, Stories & Audio",
@@ -203,7 +196,6 @@ fun SupportedWebsitesBottomSheet(
 
             Spacer(modifier = Modifier.height(14.dp))
 
-            // Platform 5: Twitter / X
             PlatformFeatureCard(
                 name = "Twitter / X",
                 tagline = "Embedded Videos & High-FPS GIFs",
@@ -218,7 +210,6 @@ fun SupportedWebsitesBottomSheet(
 
             Spacer(modifier = Modifier.height(14.dp))
 
-            // Platform 6: Universal Engine
             PlatformFeatureCard(
                 name = "Universal Core Engine",
                 tagline = "1,000+ Online Sites & Media Streams",
@@ -235,7 +226,6 @@ fun SupportedWebsitesBottomSheet(
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            // Tip Card with separated platform bullets
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -454,7 +444,6 @@ private fun PlatformFeatureCard(
 
             Spacer(modifier = Modifier.height(12.dp))
 
-            // Bullet list instead of check icons
             features.forEach { feature ->
                 Row(
                     modifier = Modifier

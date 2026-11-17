@@ -114,12 +114,10 @@ fun PlaylistBatchSelectionBottomSheet(
                 .navigationBarsPadding()
                 .padding(bottom = 16.dp)
         ) {
-            // Header: Playlist Thumbnail + Title + Close Button
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                // Playlist Cover
                 Box(
                     modifier = Modifier
                         .size(60.dp)
@@ -183,7 +181,6 @@ fun PlaylistBatchSelectionBottomSheet(
 
             Spacer(modifier = Modifier.height(14.dp))
 
-            // Folder Organization Card
             GlassCard(modifier = Modifier.fillMaxWidth()) {
                 Column(modifier = Modifier.padding(12.dp)) {
                     Row(
@@ -283,7 +280,6 @@ fun PlaylistBatchSelectionBottomSheet(
 
             Spacer(modifier = Modifier.height(10.dp))
 
-            // Quality Preset Selector Card
             GlassCard(modifier = Modifier.fillMaxWidth()) {
                 Column(modifier = Modifier.padding(12.dp)) {
                     Text(
@@ -335,7 +331,6 @@ fun PlaylistBatchSelectionBottomSheet(
 
             Spacer(modifier = Modifier.height(12.dp))
 
-            // Selection Bar: Counter + Select All
             val allSelected = selectedIds.size == playlistInfo.items.size
             Row(
                 modifier = Modifier.fillMaxWidth(),
@@ -377,7 +372,6 @@ fun PlaylistBatchSelectionBottomSheet(
 
             Spacer(modifier = Modifier.height(8.dp))
 
-            // Scrollable Items List
             LazyColumn(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -419,7 +413,6 @@ fun PlaylistBatchSelectionBottomSheet(
 
                             Spacer(modifier = Modifier.width(6.dp))
 
-                            // Thumbnail with duration overlay
                             Box(
                                 modifier = Modifier
                                     .size(width = 64.dp, height = 40.dp)
@@ -481,7 +474,6 @@ fun PlaylistBatchSelectionBottomSheet(
 
             Spacer(modifier = Modifier.height(14.dp))
 
-            // Action Button: Download Selected Items
             ObsidianButton(
                 text = if (isSubmitting) "Queueing Downloads..." else if (selectedIds.isEmpty()) "Select at least 1 item" else "Queue ${selectedIds.size} Downloads",
                 onClick = {

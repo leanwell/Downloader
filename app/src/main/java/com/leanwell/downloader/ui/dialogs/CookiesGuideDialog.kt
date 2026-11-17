@@ -63,7 +63,6 @@ fun CookiesGuideDialog(
                     .padding(22.dp)
                     .verticalScroll(rememberScrollState())
             ) {
-                // Header
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceBetween,
@@ -115,7 +114,6 @@ fun CookiesGuideDialog(
 
                 Spacer(modifier = Modifier.height(18.dp))
 
-                // Intro explanation
                 Text(
                     text = "A cookies.txt file contains your authenticated session cookies, allowing yt-dlp to bypass bot challenges and access age-restricted videos.",
                     style = MaterialTheme.typography.bodyMedium.copy(
@@ -129,7 +127,6 @@ fun CookiesGuideDialog(
                 HorizontalDivider(color = Color.Black.copy(alpha = 0.08f))
                 Spacer(modifier = Modifier.height(16.dp))
 
-                // Method 1: Desktop Browser
                 MethodSection(
                     icon = Icons.Rounded.Computer,
                     title = "Method 1: Desktop Browser (Fastest)",
@@ -146,7 +143,6 @@ fun CookiesGuideDialog(
                 HorizontalDivider(color = Color.Black.copy(alpha = 0.08f))
                 Spacer(modifier = Modifier.height(18.dp))
 
-                // Method 2: Mobile Browser (Firefox)
                 MethodSection(
                     icon = Icons.Rounded.PhoneAndroid,
                     title = "Method 2: Mobile Browser (Firefox)",
@@ -161,7 +157,6 @@ fun CookiesGuideDialog(
 
                 Spacer(modifier = Modifier.height(16.dp))
 
-                // Security notice
                 Surface(
                     shape = RoundedCornerShape(10.dp),
                     color = Color(0xFFF1F5F9),
@@ -180,7 +175,6 @@ fun CookiesGuideDialog(
 
                 Spacer(modifier = Modifier.height(16.dp))
 
-                // Close Button
                 Surface(
                     onClick = onDismiss,
                     shape = RoundedCornerShape(12.dp),

@@ -163,14 +163,9 @@ fun MainApp(
     val coroutineScope = rememberCoroutineScope()
     var hasSeenOnboarding by remember { mutableStateOf(AppSettings.isOnboardingCompleted(context)) }
     var selectedDestination by remember { mutableStateOf(NavDestination.HOME) }
-
-    // Active downloads state observed directly from DownloadQueueManager
     val activeDownloads by DownloadQueueManager.downloads.collectAsState()
-
-    // Library media items state
     var mediaItems by remember { mutableStateOf(emptyList<MediaItem>()) }
 
-    // Load existing downloaded files from disk on launch (offloaded to IO dispatcher)
     LaunchedEffect(Unit) {
         val existingFiles = withContext(Dispatchers.IO) {
             MediaScannerUtils.loadDownloadedMediaItems(context)
@@ -178,7 +173,6 @@ fun MainApp(
         mediaItems = existingFiles
     }
 
-    // Collect newly completed media items into Library
     LaunchedEffect(Unit) {
         DownloadQueueManager.completedMediaItems.collect { newItem ->
             mediaItems = listOf(newItem) + mediaItems.filterNot { it.filePath == newItem.filePath }
@@ -198,7 +192,6 @@ fun MainApp(
         }
     }
 
-    // Media Player State from AppPlayerManager
     val currentlyPlayingItem by AppPlayerManager.currentTrack.collectAsState()
     val isPlaying by AppPlayerManager.isPlaying.collectAsState()
     val playerProgress by AppPlayerManager.progress.collectAsState()
@@ -206,7 +199,6 @@ fun MainApp(
     val durationMs by AppPlayerManager.durationMs.collectAsState()
     val autoSwitchToQueue by AppSettings.autoSwitchToQueue.collectAsState()
 
-    // Modal Bottom Sheets state
     var showFormatSheet by remember { mutableStateOf(false) }
     var showPlaylistSheet by remember { mutableStateOf(false) }
     var pendingVideoUrl by remember { mutableStateOf("") }
@@ -286,7 +278,6 @@ fun MainApp(
         }
     } else {
         Box(modifier = Modifier.fillMaxSize()) {
-            // Main Content Area (Covered by hazeSource for live hardware backdrop blur sampling)
             Box(
                 modifier = Modifier
                     .fillMaxSize()
@@ -427,7 +418,6 @@ fun MainApp(
             }
             }
 
-            // Bottom Navigation & Mini Player Dock (Hidden when keyboard is showing, slides down/up)
             AnimatedVisibility(
                 visible = !WindowInsets.isImeVisible,
                 enter = fadeIn(tween(250)) + slideInVertically(
@@ -441,7 +431,6 @@ fun MainApp(
                 Column(
                     modifier = Modifier.fillMaxWidth()
                 ) {
-                    // Persistent Mini-Player Bar with Immediate Slide-Up Animation on Bottom Sheet Dismissal
                     AnimatedVisibility(
                         visible = currentlyPlayingItem != null && !showExpandedPlayerSheet,
                         enter = slideInVertically(
@@ -473,7 +462,6 @@ fun MainApp(
                         }
                     }
 
-                    // Docked 4-Tab Bottom Navigation Bar with real frosted glass blur
                     FrostedBottomNavBar(
                         selectedDestination = selectedDestination,
                         onDestinationSelected = { selectedDestination = it },
@@ -485,7 +473,6 @@ fun MainApp(
                 }
             }
 
-            // Signature Modal Bottom Sheet 1: Format & Quality Selector
             if (showFormatSheet) {
                 val info = extractedVideoInfo
                 val currentPlatform = YoutubeEngine.detectPlatform(pendingVideoUrl)
@@ -638,7 +625,6 @@ fun MainApp(
                 )
             }
 
-            // Signature Modal Bottom Sheet 1B: YouTube Playlist Batch Selection
             if (showPlaylistSheet && extractedPlaylistInfo != null) {
                 val playlist = extractedPlaylistInfo!!
                 PlaylistBatchSelectionBottomSheet(
@@ -721,7 +707,6 @@ fun MainApp(
                 )
             }
 
-            // Signature Modal Bottom Sheet 2: Expanded Media Player
             if (showExpandedPlayerSheet && currentlyPlayingItem != null) {
                 ExpandedPlayerBottomSheet(
                     mediaItem = currentlyPlayingItem!!,
@@ -773,7 +758,6 @@ fun MainApp(
                 )
             }
 
-            // Signature Modal Bottom Sheet 3: File Actions Menu
             if (selectedMediaForActions != null) {
                 FileActionsBottomSheet(
                     mediaItem = selectedMediaForActions!!,
@@ -871,7 +855,6 @@ fun MainApp(
                 )
             }
 
-            // Signature Modal Bottom Sheet 4: About & Legal
             if (showAboutLegalSheet) {
                 AboutLegalBottomSheet(
                     initialTab = aboutLegalInitialTab,

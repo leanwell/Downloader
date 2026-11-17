@@ -67,7 +67,6 @@ fun InstagramCookiesGuideDialog(
                     .padding(22.dp)
                     .verticalScroll(rememberScrollState())
             ) {
-                // Header
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceBetween,
@@ -119,7 +118,6 @@ fun InstagramCookiesGuideDialog(
 
                 Spacer(modifier = Modifier.height(18.dp))
 
-                // Intro explanation
                 Text(
                     text = "Public Instagram Reels and video posts download directly without signing in. For accounts you follow with private posts, importing your session cookies unlocks full access safely.",
                     style = MaterialTheme.typography.bodyMedium.copy(
@@ -133,7 +131,6 @@ fun InstagramCookiesGuideDialog(
                 HorizontalDivider(color = Color.Black.copy(alpha = 0.08f))
                 Spacer(modifier = Modifier.height(16.dp))
 
-                // Method 1: Desktop Browser
                 MethodSection(
                     icon = Icons.Rounded.Computer,
                     title = "Method 1: Desktop Browser (Recommended)",
@@ -150,7 +147,6 @@ fun InstagramCookiesGuideDialog(
                 HorizontalDivider(color = Color.Black.copy(alpha = 0.08f))
                 Spacer(modifier = Modifier.height(18.dp))
 
-                // Method 2: Mobile Browser (Firefox)
                 MethodSection(
                     icon = Icons.Rounded.PhoneAndroid,
                     title = "Method 2: Mobile Browser (Firefox)",
@@ -165,7 +161,6 @@ fun InstagramCookiesGuideDialog(
 
                 Spacer(modifier = Modifier.height(16.dp))
 
-                // Security notice
                 Surface(
                     shape = RoundedCornerShape(10.dp),
                     color = Color(0xFFF1F5F9),
@@ -184,7 +179,6 @@ fun InstagramCookiesGuideDialog(
 
                 Spacer(modifier = Modifier.height(16.dp))
 
-                // Close Button
                 Surface(
                     onClick = onDismiss,
                     shape = RoundedCornerShape(12.dp),

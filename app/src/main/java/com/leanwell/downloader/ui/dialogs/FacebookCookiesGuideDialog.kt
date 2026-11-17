@@ -64,7 +64,6 @@ fun FacebookCookiesGuideDialog(
                     .padding(22.dp)
                     .verticalScroll(rememberScrollState())
             ) {
-                // Header
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceBetween,
@@ -118,7 +117,6 @@ fun FacebookCookiesGuideDialog(
 
                 Spacer(modifier = Modifier.height(18.dp))
 
-                // Intro explanation
                 Text(
                     text = "Public Facebook videos and Reels download directly with no login needed. For private videos, closed groups, or friend-restricted posts, importing your session cookies unlocks full access safely.",
                     style = MaterialTheme.typography.bodyMedium.copy(
@@ -132,7 +130,6 @@ fun FacebookCookiesGuideDialog(
                 HorizontalDivider(color = Color.Black.copy(alpha = 0.08f))
                 Spacer(modifier = Modifier.height(16.dp))
 
-                // Method 1: Desktop Browser
                 MethodSection(
                     icon = Icons.Rounded.Computer,
                     title = "Method 1: Desktop Browser (Recommended)",
@@ -149,7 +146,6 @@ fun FacebookCookiesGuideDialog(
                 HorizontalDivider(color = Color.Black.copy(alpha = 0.08f))
                 Spacer(modifier = Modifier.height(18.dp))
 
-                // Method 2: Mobile Browser (Firefox)
                 MethodSection(
                     icon = Icons.Rounded.PhoneAndroid,
                     title = "Method 2: Mobile Browser (Firefox)",
@@ -164,7 +160,6 @@ fun FacebookCookiesGuideDialog(
 
                 Spacer(modifier = Modifier.height(16.dp))
 
-                // Security notice
                 Surface(
                     shape = RoundedCornerShape(10.dp),
                     color = Color(0xFFF1F5F9),
@@ -183,7 +178,6 @@ fun FacebookCookiesGuideDialog(
 
                 Spacer(modifier = Modifier.height(16.dp))
 
-                // Close Button
                 Surface(
                     onClick = onDismiss,
                     shape = RoundedCornerShape(12.dp),

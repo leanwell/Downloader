@@ -89,7 +89,6 @@ fun AboutLegalBottomSheet(
                 .navigationBarsPadding()
                 .padding(bottom = 24.dp)
         ) {
-            // Header Row
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
@@ -117,7 +116,6 @@ fun AboutLegalBottomSheet(
 
             Spacer(modifier = Modifier.height(12.dp))
 
-            // Author & Project Identity Card (Leanwell 2026)
             GlassCard(modifier = Modifier.fillMaxWidth()) {
                 Row(
                     modifier = Modifier
@@ -179,7 +177,6 @@ fun AboutLegalBottomSheet(
 
             Spacer(modifier = Modifier.height(14.dp))
 
-            // Segmented Tab Switcher (Licenses vs Terms)
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -189,7 +186,6 @@ fun AboutLegalBottomSheet(
                     .padding(4.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                // Tab 0: Open Source Licenses
                 val isLicensesSelected = selectedTab == 0
                 Box(
                     modifier = Modifier
@@ -218,7 +214,6 @@ fun AboutLegalBottomSheet(
                     }
                 }
 
-                // Tab 1: Terms & Disclaimer
                 val isTermsSelected = selectedTab == 1
                 Box(
                     modifier = Modifier
@@ -250,7 +245,6 @@ fun AboutLegalBottomSheet(
 
             Spacer(modifier = Modifier.height(14.dp))
 
-            // Scrollable Content
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -259,7 +253,6 @@ fun AboutLegalBottomSheet(
                 verticalArrangement = Arrangement.spacedBy(10.dp)
             ) {
                 if (selectedTab == 0) {
-                    // App License Recommendation Card
                     GlassCard(modifier = Modifier.fillMaxWidth()) {
                         Column(modifier = Modifier.padding(14.dp)) {
                             Row(
@@ -295,7 +288,6 @@ fun AboutLegalBottomSheet(
                         }
                     }
 
-                    // Open Source Engines List (yt-dlp, FFmpeg, aria2c)
                     LicenseItem(
                         name = "yt-dlp",
                         author = "yt-dlp Contributors",
@@ -315,7 +307,6 @@ fun AboutLegalBottomSheet(
                         description = "Multi-source & segmented accelerated download engine."
                     )
                 } else {
-                    // Third-Party Media Aggregator & Copyright Disclaimer
                     GlassCard(modifier = Modifier.fillMaxWidth()) {
                         Column(modifier = Modifier.padding(14.dp)) {
                             Row(verticalAlignment = Alignment.CenterVertically) {
@@ -346,7 +337,6 @@ fun AboutLegalBottomSheet(
                         }
                     }
 
-                    // Strict Limitation of Liability
                     GlassCard(modifier = Modifier.fillMaxWidth()) {
                         Column(modifier = Modifier.padding(14.dp)) {
                             Row(verticalAlignment = Alignment.CenterVertically) {
@@ -377,7 +367,6 @@ fun AboutLegalBottomSheet(
                         }
                     }
 
-                    // No DRM Circumvention
                     GlassCard(modifier = Modifier.fillMaxWidth()) {
                         Column(modifier = Modifier.padding(14.dp)) {
                             Text(
@@ -399,7 +388,6 @@ fun AboutLegalBottomSheet(
                         }
                     }
 
-                    // Personal Educational Archival & Fair Use
                     GlassCard(modifier = Modifier.fillMaxWidth()) {
                         Column(modifier = Modifier.padding(14.dp)) {
                             Text(
@@ -421,7 +409,6 @@ fun AboutLegalBottomSheet(
                         }
                     }
 
-                    // Privacy Guarantee
                     GlassCard(modifier = Modifier.fillMaxWidth()) {
                         Column(modifier = Modifier.padding(14.dp)) {
                             Text(

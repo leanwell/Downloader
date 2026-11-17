@@ -76,7 +76,6 @@ fun DownloadErrorDetailsDialog(
                     .padding(22.dp)
                     .verticalScroll(rememberScrollState())
             ) {
-                // Header
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceBetween,
@@ -128,7 +127,6 @@ fun DownloadErrorDetailsDialog(
 
                 Spacer(modifier = Modifier.height(14.dp))
 
-                // Item Title
                 Text(
                     text = itemTitle,
                     style = MaterialTheme.typography.bodyMedium.copy(
@@ -140,7 +138,6 @@ fun DownloadErrorDetailsDialog(
 
                 Spacer(modifier = Modifier.height(8.dp))
 
-                // User Friendly Explanation Card
                 Surface(
                     shape = RoundedCornerShape(12.dp),
                     color = Color(0xFFFEF2F2),
@@ -168,7 +165,6 @@ fun DownloadErrorDetailsDialog(
 
                 Spacer(modifier = Modifier.height(14.dp))
 
-                // Technical Raw Log Box Header
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceBetween,
@@ -216,7 +212,6 @@ fun DownloadErrorDetailsDialog(
 
                 Spacer(modifier = Modifier.height(8.dp))
 
-                // Raw Log Box
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -240,7 +235,6 @@ fun DownloadErrorDetailsDialog(
                 HorizontalDivider(color = Color.Black.copy(alpha = 0.08f))
                 Spacer(modifier = Modifier.height(16.dp))
 
-                // Action Buttons
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.spacedBy(10.dp)

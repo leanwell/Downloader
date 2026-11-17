@@ -172,7 +172,6 @@ fun SettingsScreen(
                 .padding(horizontal = 20.dp)
                 .padding(top = 16.dp, bottom = 140.dp)
         ) {
-            // Header Row
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
@@ -197,7 +196,6 @@ fun SettingsScreen(
 
             Spacer(modifier = Modifier.height(20.dp))
 
-            // Card 1: Engine & OTA Core Updates
             SectionHeader(title = "Engine & Updates")
             GlassCard(modifier = Modifier.fillMaxWidth()) {
                 Column(modifier = Modifier.padding(16.dp)) {
@@ -309,11 +307,9 @@ fun SettingsScreen(
 
             Spacer(modifier = Modifier.height(20.dp))
 
-            // Card 2: Social Authentication & Cookies (Single Unified Card)
             SectionHeader(title = "Social Authentication & Cookies")
             GlassCard(modifier = Modifier.fillMaxWidth()) {
                 Column(modifier = Modifier.padding(16.dp)) {
-                    // 1. YouTube Authentication
                     Row(
                         modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.SpaceBetween,
@@ -367,7 +363,6 @@ fun SettingsScreen(
 
                     Spacer(modifier = Modifier.height(12.dp))
 
-                    // Action 1: Sign In via YouTube (Primary)
                     Surface(
                         onClick = { showLoginDialog = true },
                         shape = RoundedCornerShape(12.dp),
@@ -412,7 +407,6 @@ fun SettingsScreen(
 
                     Spacer(modifier = Modifier.height(8.dp))
 
-                    // Action 2: Import cookies.txt with Help Guide on right
                     Surface(
                         onClick = {
                             cookieFilePicker.launch(arrayOf("text/*", "*/*"))
@@ -462,7 +456,6 @@ fun SettingsScreen(
                         }
                     }
 
-                    // Action 3: Clear Cookies
                     if (hasCookies) {
                         Spacer(modifier = Modifier.height(8.dp))
                         Surface(
@@ -506,7 +499,6 @@ fun SettingsScreen(
                         color = Color.Black.copy(alpha = 0.06f)
                     )
 
-                    // 2. Facebook Authentication
                     Row(
                         modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.SpaceBetween,
@@ -654,7 +646,6 @@ fun SettingsScreen(
                         color = Color.Black.copy(alpha = 0.06f)
                     )
 
-                    // 3. Instagram Authentication
                     Row(
                         modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.SpaceBetween,
@@ -804,7 +795,6 @@ fun SettingsScreen(
                         color = Color.Black.copy(alpha = 0.06f)
                     )
 
-                    // 4. Hardware Encrypted Keystore & Auto-Deletion Notice (Nested at bottom inside main card)
                     Surface(
                         shape = RoundedCornerShape(12.dp),
                         color = Color(0xFFF8FAFC),
@@ -837,11 +827,9 @@ fun SettingsScreen(
 
             Spacer(modifier = Modifier.height(20.dp))
 
-            // Card 3: Downloads & Storage
             SectionHeader(title = "Downloads & Storage")
             GlassCard(modifier = Modifier.fillMaxWidth()) {
                 Column(modifier = Modifier.padding(horizontal = 16.dp, vertical = 6.dp)) {
-                    // Wi-Fi Only Toggle
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
@@ -890,7 +878,6 @@ fun SettingsScreen(
 
                     HorizontalDivider(color = Color.White.copy(alpha = 0.5f), thickness = 0.8.dp)
 
-                    // Auto-Embed Metadata Toggle
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
@@ -939,7 +926,6 @@ fun SettingsScreen(
 
                     HorizontalDivider(color = Color.White.copy(alpha = 0.5f), thickness = 0.8.dp)
 
-                    // Auto-Switch to Queue Toggle
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
@@ -988,7 +974,6 @@ fun SettingsScreen(
 
                     HorizontalDivider(color = Color.White.copy(alpha = 0.5f), thickness = 0.8.dp)
 
-                    // Parallel Downloads Toggle (Prominently featured in Downloads & Storage)
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
@@ -1035,7 +1020,6 @@ fun SettingsScreen(
                         )
                     }
 
-                    // Max Concurrent Downloads Selector (Visible when parallel downloads enabled)
                     androidx.compose.animation.AnimatedVisibility(
                         visible = isParallelDownloads,
                         enter = androidx.compose.animation.fadeIn() + androidx.compose.animation.expandVertically(),
@@ -1100,7 +1084,6 @@ fun SettingsScreen(
 
                     HorizontalDivider(color = Color.White.copy(alpha = 0.5f), thickness = 0.8.dp)
 
-                    // Picture-in-Picture (PiP) Toggle
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
@@ -1149,7 +1132,6 @@ fun SettingsScreen(
 
                     HorizontalDivider(color = Color.White.copy(alpha = 0.5f), thickness = 0.8.dp)
 
-                    // Storage Location
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
@@ -1199,7 +1181,6 @@ fun SettingsScreen(
 
                     HorizontalDivider(color = Color.White.copy(alpha = 0.5f), thickness = 0.8.dp)
 
-                    // Clean Temporary Cache
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
@@ -1258,7 +1239,6 @@ fun SettingsScreen(
 
             Spacer(modifier = Modifier.height(20.dp))
 
-            // Card 4: About & Legal
             SectionHeader(title = "About & Legal")
             GlassCard(modifier = Modifier.fillMaxWidth()) {
                 Column(modifier = Modifier.padding(horizontal = 16.dp, vertical = 6.dp)) {
@@ -1394,7 +1374,6 @@ fun SettingsScreen(
 
                     HorizontalDivider(color = Color.White.copy(alpha = 0.5f), thickness = 0.8.dp)
 
-                    // Architecture & Build Diagnostics
                     val activeAbi = android.os.Build.SUPPORTED_ABIS.firstOrNull() ?: "arm64-v8a"
                     val isDebug = (context.applicationInfo.flags and android.content.pm.ApplicationInfo.FLAG_DEBUGGABLE) != 0
                     val buildTypeLabel = if (isDebug) "Debug" else "Optimized Release"
@@ -1450,7 +1429,6 @@ fun SettingsScreen(
                 }
             }
 
-            // Bottom clearance for floating navbar and mini player dock
             Spacer(modifier = Modifier.height(140.dp))
         }
 

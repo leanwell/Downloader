@@ -89,7 +89,6 @@ fun FrostedMiniPlayerBar(
             .border(1.dp, borderColor, playerShape)
             .clickable(onClick = onClick)
     ) {
-        // Mini Player Content
         Column(modifier = Modifier.fillMaxWidth()) {
             Row(
                 modifier = Modifier
@@ -97,7 +96,6 @@ fun FrostedMiniPlayerBar(
                     .padding(horizontal = 12.dp, vertical = 8.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                // Mini Album Art
                 Box(
                     modifier = Modifier
                         .size(42.dp)
@@ -127,7 +125,6 @@ fun FrostedMiniPlayerBar(
 
                 Spacer(modifier = Modifier.width(12.dp))
 
-                // Track Title & Channel/Artist
                 Column(
                     modifier = Modifier
                         .weight(1f)
@@ -167,7 +164,6 @@ fun FrostedMiniPlayerBar(
                     )
                 }
 
-                // Controls: Play/Pause, Next Track, Close
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.spacedBy(2.dp)
@@ -212,7 +208,6 @@ fun FrostedMiniPlayerBar(
                 }
             }
 
-            // Minimal Progress Bar along bottom edge of mini-player
             LinearProgressIndicator(
                 progress = { progress },
                 modifier = Modifier

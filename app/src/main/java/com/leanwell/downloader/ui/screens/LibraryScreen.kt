@@ -168,9 +168,7 @@ fun LibraryScreen(
         ) {
             Spacer(modifier = Modifier.height(16.dp))
 
-            // Header Row / Selection Bar
             if (isSelectionMode) {
-                // Batch Selection Action Bar
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceBetween,
@@ -272,7 +270,6 @@ fun LibraryScreen(
                     }
                 }
             } else {
-                // Normal Header with Trash and Search buttons
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceBetween,
@@ -299,7 +296,6 @@ fun LibraryScreen(
                         horizontalArrangement = Arrangement.spacedBy(8.dp),
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        // Trash Icon (enters batch selection mode)
                         Box(
                             modifier = Modifier
                                 .size(36.dp)
@@ -320,7 +316,6 @@ fun LibraryScreen(
                             )
                         }
 
-                        // Search Icon (toggles search input)
                         Box(
                             modifier = Modifier
                                 .size(36.dp)
@@ -344,7 +339,6 @@ fun LibraryScreen(
                 }
             }
 
-            // Expandable Search Bar
             AnimatedVisibility(
                 visible = isSearchActive && !isSelectionMode,
                 enter = fadeIn(),
@@ -397,7 +391,6 @@ fun LibraryScreen(
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            // Filter Chips Row
             LazyRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                 items(filterOptions) { option ->
                     val isSelected = (selectedFilter.startsWith("All") && option.startsWith("All")) ||
@@ -429,13 +422,11 @@ fun LibraryScreen(
 
             Spacer(modifier = Modifier.height(10.dp))
 
-            // Sub-Filter Row: Platform Chips + Sort Button
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                // Platform filters
                 LazyRow(
                     horizontalArrangement = Arrangement.spacedBy(6.dp),
                     modifier = Modifier
@@ -495,7 +486,6 @@ fun LibraryScreen(
                     }
                 }
 
-                // Sort Dropdown Button
                 Box {
                     Surface(
                         onClick = { showSortMenu = true },
@@ -553,7 +543,6 @@ fun LibraryScreen(
 
             Spacer(modifier = Modifier.height(14.dp))
 
-            // Media List or Empty State
             if (filteredItems.isEmpty()) {
                 Box(
                     modifier = Modifier
@@ -641,14 +630,12 @@ fun LibraryScreen(
                     }
 
                     item {
-                        // Safe scrolling padding so lowest item is completely visible above Bottom Nav + Mini Player
                         Spacer(modifier = Modifier.height(180.dp))
                     }
                 }
             }
         }
 
-        // Delete Confirmation Dialog
         if (showDeleteConfirmDialog) {
             val count = selectedItemIds.size
             AlertDialog(
@@ -752,7 +739,6 @@ fun MediaItemRow(
                 .padding(12.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            // Checkbox in selection mode
             if (isSelectionMode) {
                 Checkbox(
                     checked = isSelected,
@@ -766,7 +752,6 @@ fun MediaItemRow(
                 )
             }
 
-            // Thumbnail
             Box(
                 modifier = Modifier
                     .size(width = 64.dp, height = 50.dp)
@@ -804,7 +789,6 @@ fun MediaItemRow(
                     )
                 }
 
-                // Duration badge
                 Box(
                     modifier = Modifier
                         .align(Alignment.BottomEnd)
@@ -825,7 +809,6 @@ fun MediaItemRow(
 
             Spacer(modifier = Modifier.width(12.dp))
 
-            // Title & Info
             Column(modifier = Modifier.weight(1f)) {
                 Text(
                     text = item.title,
@@ -940,7 +923,6 @@ fun MediaItemRow(
                 }
             }
 
-            // 3-Dot Overflow Menu Button (Hidden in selection mode)
             if (!isSelectionMode) {
                 IconButton(
                     onClick = onMenuClick,

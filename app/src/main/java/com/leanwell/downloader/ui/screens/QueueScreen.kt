@@ -119,7 +119,6 @@ fun QueueScreen(
         ) {
             Spacer(modifier = Modifier.height(16.dp))
 
-            // Top Header Row
             Text(
                 text = "Download Queue",
                 style = MaterialTheme.typography.headlineSmall.copy(
@@ -130,7 +129,6 @@ fun QueueScreen(
 
             Spacer(modifier = Modifier.height(14.dp))
 
-            // Storage & Bandwidth Summary Bar
             GlassCard(modifier = Modifier.fillMaxWidth()) {
                 Row(
                     modifier = Modifier
@@ -177,7 +175,6 @@ fun QueueScreen(
 
             Spacer(modifier = Modifier.height(14.dp))
 
-            // Actions & Queue Counter Row
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
@@ -244,7 +241,6 @@ fun QueueScreen(
 
             Spacer(modifier = Modifier.height(10.dp))
 
-            // Queue List or Empty State
             if (downloads.isEmpty()) {
                 Box(
                     modifier = Modifier
@@ -325,7 +321,6 @@ fun QueueScreen(
                 }
             }
 
-            // Error details modal
             selectedErrorItem?.let { (item, notice) ->
                 DownloadErrorDetailsDialog(
                     itemTitle = item.title,
@@ -361,7 +356,6 @@ fun DownloadCard(
         borderAlpha = 0.85f
     ) {
         Column(modifier = Modifier.padding(14.dp)) {
-            // Row 1: Thumbnail & Metadata Header
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically
@@ -453,7 +447,6 @@ fun DownloadCard(
                     )
                 }
 
-                // Controls
                 if (item.status == DownloadStatus.DOWNLOADING || item.status == DownloadStatus.PAUSED) {
                     IconButton(
                         onClick = onPauseToggle,
@@ -522,7 +515,6 @@ fun DownloadCard(
 
             Spacer(modifier = Modifier.height(10.dp))
 
-            // Row 2: Progress & State
             when (item.status) {
                 DownloadStatus.DOWNLOADING, DownloadStatus.PAUSED -> {
                     val animatedProgress by animateFloatAsState(

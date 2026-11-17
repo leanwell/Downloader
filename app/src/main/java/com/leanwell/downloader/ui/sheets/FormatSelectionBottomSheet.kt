@@ -152,7 +152,6 @@ fun FormatSelectionBottomSheet(
                 .verticalScroll(rememberScrollState())
                 .padding(bottom = 24.dp)
         ) {
-            // Header Row
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
@@ -180,7 +179,6 @@ fun FormatSelectionBottomSheet(
 
             Spacer(modifier = Modifier.height(14.dp))
 
-            // Media Preview Card
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -190,7 +188,6 @@ fun FormatSelectionBottomSheet(
                     .padding(12.dp)
             ) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
-                    // 16:9 Thumbnail preview box
                     Box(
                         modifier = Modifier
                             .size(width = 80.dp, height = 52.dp)
@@ -290,7 +287,6 @@ fun FormatSelectionBottomSheet(
 
             Spacer(modifier = Modifier.height(18.dp))
 
-            // Segmented Switcher (Audio vs Video)
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -300,7 +296,6 @@ fun FormatSelectionBottomSheet(
                     .padding(4.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                // Audio Tab
                 val isAudioSelected = selectedMediaType == MediaType.AUDIO
                 Box(
                     modifier = Modifier
@@ -329,7 +324,6 @@ fun FormatSelectionBottomSheet(
                     }
                 }
 
-                // Video Tab
                 val isVideoSelected = selectedMediaType == MediaType.VIDEO
                 Box(
                     modifier = Modifier
@@ -361,7 +355,6 @@ fun FormatSelectionBottomSheet(
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            // High-Resolution On-Demand Scan Card (Shown on Video Tab for YouTube)
             if (selectedMediaType == MediaType.VIDEO && onScanHighRes != null && platform == Platform.YOUTUBE) {
                 Surface(
                     onClick = {
@@ -462,7 +455,6 @@ fun FormatSelectionBottomSheet(
                 Spacer(modifier = Modifier.height(10.dp))
             }
 
-            // Format Options List
             val currentFormats = if (selectedMediaType == MediaType.AUDIO) audioFormats else videoFormatList
             Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
                 currentFormats.forEach { format ->
@@ -518,7 +510,6 @@ fun FormatSelectionBottomSheet(
 
             Spacer(modifier = Modifier.height(14.dp))
 
-            // Metadata Auto-Embed Checkbox
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -556,7 +547,6 @@ fun FormatSelectionBottomSheet(
 
             Spacer(modifier = Modifier.height(20.dp))
 
-            // Primary Download CTA Button
             ObsidianButton(
                 text = if (isSubmitting) "Adding to Queue..." else "Download • ${selectedFormat.label.substringBefore(" ")} (${selectedFormat.estimatedSize})",
                 onClick = {

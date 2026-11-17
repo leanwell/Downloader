@@ -100,7 +100,6 @@ fun YouTubeLoginDialog(
             color = Color(0xFFF9F9FB)
         ) {
             Column(modifier = Modifier.fillMaxSize()) {
-                // Top App Bar
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -136,7 +135,6 @@ fun YouTubeLoginDialog(
                         }
                     }
 
-                    // Save session button
                     Surface(
                         onClick = {
                             val saved = checkAndSaveCookies()
@@ -174,7 +172,6 @@ fun YouTubeLoginDialog(
                     }
                 }
 
-                // Loading progress indicator
                 if (isPageLoading) {
                     LinearProgressIndicator(
                         progress = { webProgress },
@@ -186,7 +183,6 @@ fun YouTubeLoginDialog(
                     )
                 }
 
-                // WebView container
                 Box(
                     modifier = Modifier
                         .weight(1f)
@@ -266,7 +262,6 @@ fun YouTubeLoginDialog(
                                 CookieManager.getInstance().setAcceptCookie(true)
                                 CookieManager.getInstance().setAcceptThirdPartyCookies(this, true)
 
-                                // Load Google/YouTube login URL
                                 loadUrl("https://accounts.google.com/ServiceLogin?service=youtube&continue=https%3A%2F%2Fm.youtube.com%2F")
                             }
                         },
@@ -274,7 +269,6 @@ fun YouTubeLoginDialog(
                     )
                 }
 
-                // Privacy Note Footer
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()

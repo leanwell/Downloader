@@ -65,13 +65,11 @@ fun OnboardingScreen(
         ) {
             Spacer(modifier = Modifier.height(16.dp))
 
-            // Center Visual Showcase: Frosted Glass Badge & Typographic Hero
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center,
                 modifier = Modifier.weight(1f)
             ) {
-                // Luminous Frosted Glass Badge (112 x 112 dp)
                 val outerBg = Color.White.copy(alpha = 0.72f)
                 val outerBorder = Color.White.copy(alpha = 0.85f)
 
@@ -89,7 +87,6 @@ fun OnboardingScreen(
                         .border(1.5.dp, outerBorder, CircleShape),
                     contentAlignment = Alignment.Center
                 ) {
-                    // Inner Circle
                     val innerBrush = Brush.verticalGradient(
                         listOf(Color.White, Color(0xFFEEF4FF))
                     )
@@ -113,7 +110,6 @@ fun OnboardingScreen(
 
                 Spacer(modifier = Modifier.height(36.dp))
 
-                // Hero Headline
                 Text(
                     text = "Universal Media\nDownloader.",
                     style = MaterialTheme.typography.headlineLarge.copy(
@@ -127,7 +123,6 @@ fun OnboardingScreen(
 
                 Spacer(modifier = Modifier.height(14.dp))
 
-                // Value Proposition Main Description
                 Text(
                     text = "Effortlessly grab and convert audio & video in seconds from YouTube, Spotify, TikTok, Instagram, Facebook, and 1,000+ sites.",
                     style = MaterialTheme.typography.bodyLarge.copy(
@@ -140,7 +135,6 @@ fun OnboardingScreen(
                 )
             }
 
-            // Call to Actions & Trust Footnote
             Column(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalAlignment = Alignment.CenterHorizontally
@@ -154,7 +148,6 @@ fun OnboardingScreen(
 
                 Spacer(modifier = Modifier.height(16.dp))
 
-                // Terms & Privacy Policy Clickable Text
                 val footnoteAnnotated = buildAnnotatedString {
                     append("By using this application you agree to our ")
                     withLink(

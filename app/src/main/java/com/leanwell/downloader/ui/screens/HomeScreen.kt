@@ -145,7 +145,6 @@ fun HomeScreen(
                     .padding(horizontal = 20.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                // Upper whitespace area: logo icon centered and middled with smooth slide up/down transition
                 Box(
                     modifier = Modifier
                         .weight(1f)
@@ -170,7 +169,6 @@ fun HomeScreen(
                     }
                 }
 
-                // Unified Hero Ingestion & Clipboard Card docked just above bottom navigation bar
                 GlassCard(modifier = Modifier.fillMaxWidth()) {
                     Column(modifier = Modifier.padding(20.dp)) {
                         Row(
@@ -187,7 +185,6 @@ fun HomeScreen(
                                 )
                             )
 
-                            // Small encircled ? icon (no background, theme black for ? and border width)
                             Box(
                                 modifier = Modifier
                                     .size(22.dp)
@@ -263,7 +260,6 @@ fun HomeScreen(
                             modifier = Modifier.fillMaxWidth(),
                             horizontalArrangement = Arrangement.spacedBy(10.dp)
                         ) {
-                            // Quick Paste Button
                             Surface(
                                 onClick = {
                                     val clip = clipboardManager.getText()?.text
@@ -304,7 +300,6 @@ fun HomeScreen(
                                 }
                             }
 
-                            // Analyze & Download CTA (Or Cancel when analyzing)
                             Surface(
                                 onClick = {
                                     if (isAnalyzing) {
@@ -371,7 +366,6 @@ fun HomeScreen(
                             }
                         }
 
-                        // Integrated Link to Clipboard section (Part of this 1 card)
                         if (detectedClipboardUrl.isNotBlank()) {
                             Spacer(modifier = Modifier.height(16.dp))
                             HorizontalDivider(
@@ -510,7 +504,6 @@ fun InteractiveHeroLogo(
     onViewQueueClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    // Determine active download states
     val downloadingItems = remember(activeDownloads) {
         activeDownloads.filter {
             it.status == DownloadStatus.DOWNLOADING ||
@@ -525,7 +518,6 @@ fun InteractiveHeroLogo(
     }
     val hasError = errorItems.isNotEmpty()
 
-    // Celebrate completed downloads: triggers when any download reaches COMPLETED
     var celebrationUntil by remember { mutableLongStateOf(0L) }
     var errorUntil by remember { mutableLongStateOf(0L) }
 
@@ -556,14 +548,12 @@ fun InteractiveHeroLogo(
     val isCelebrationActive = currentTime < celebrationUntil
     val isErrorActive = hasError || (currentTime < errorUntil)
 
-    // Palette definitions
     val YellowIndicator = Color(0xFFF59E0B)
     val GreenIndicator = Color(0xFF10B981)
     val RedIndicator = Color(0xFFEF4444)
     val IrisIndicator = DigitalIrisSecondary
     val IdleGrayishRipple = Color(0xFF94A3B8)
 
-    // State resolution (Priority: Error -> Completed -> Downloading -> Analyzing -> Idle)
     val activeStateColor = when {
         isErrorActive -> RedIndicator
         isCelebrationActive -> GreenIndicator
@@ -573,8 +563,6 @@ fun InteractiveHeroLogo(
     }
 
     val isWaveActive = activeStateColor != null
-
-    // Target wave color smoothly transitions between active state and faint idle grayish
     val targetWaveColor = activeStateColor ?: IdleGrayishRipple
     val animatedWaveColor by animateColorAsState(
         targetValue = targetWaveColor,
@@ -582,7 +570,6 @@ fun InteractiveHeroLogo(
         label = "waveColor"
     )
 
-    // Smoothly fade wave intensity when transitioning (idle gives faint ripple, active gives vivid ripple)
     val targetWaveIntensity by animateFloatAsState(
         targetValue = if (isWaveActive) 1.0f else 0.22f,
         animationSpec = tween(durationMillis = 600, easing = FastOutSlowInEasing),
@@ -594,7 +581,6 @@ fun InteractiveHeroLogo(
     val waveBgAlpha2 = 0.18f * targetWaveIntensity
     val waveBorderAlpha2 = 0.40f * targetWaveIntensity
 
-    // Infinite wave splash animation transitions
     val infiniteTransition = rememberInfiniteTransition(label = "heroWaveSplash")
 
     val wave1Scale by infiniteTransition.animateFloat(
@@ -637,7 +623,6 @@ fun InteractiveHeroLogo(
         label = "wave2Alpha"
     )
 
-    // Interactive bounce when idle
     var bounceTrigger by remember { mutableStateOf(false) }
     val bounceScale by animateFloatAsState(
         targetValue = if (bounceTrigger) 0.92f else 1.0f,
@@ -661,7 +646,6 @@ fun InteractiveHeroLogo(
         label = "logoProgress"
     )
 
-    // Fade out progress indicator smoothly when returning to idle
     val progressRingAlpha by animateFloatAsState(
         targetValue = if (isWaveActive) 1.0f else 0.0f,
         animationSpec = tween(durationMillis = 400, easing = FastOutSlowInEasing),
@@ -691,8 +675,6 @@ fun InteractiveHeroLogo(
             },
         contentAlignment = Alignment.Center
     ) {
-        // Concentric wave splash animation rings (faint grayish when idle, vivid colored when active, with smooth fade out)
-        // Wave 1
         Box(
             modifier = Modifier
                 .size(112.dp)
@@ -705,7 +687,6 @@ fun InteractiveHeroLogo(
                 .background(animatedWaveColor.copy(alpha = waveBgAlpha1))
                 .border(2.dp, animatedWaveColor.copy(alpha = waveBorderAlpha1), CircleShape)
         )
-        // Wave 2
         Box(
             modifier = Modifier
                 .size(112.dp)
@@ -719,7 +700,6 @@ fun InteractiveHeroLogo(
                 .border(1.5.dp, animatedWaveColor.copy(alpha = waveBorderAlpha2), CircleShape)
         )
 
-        // Main 112.dp Logo Disc
         Box(
             modifier = Modifier
                 .size(112.dp)
@@ -745,7 +725,6 @@ fun InteractiveHeroLogo(
                 },
             contentAlignment = Alignment.Center
         ) {
-            // Circular Progress Indicator around outer 112.dp rim (fades out smoothly)
             if (progressRingAlpha > 0.01f) {
                 Box(
                     modifier = Modifier
@@ -792,7 +771,6 @@ fun InteractiveHeroLogo(
                 }
             }
 
-            // Inner 64.dp Bolt Container
             val innerBrush = Brush.verticalGradient(
                 listOf(Color.White, Color(0xFFEEF4FF))
             )
@@ -814,7 +792,6 @@ fun InteractiveHeroLogo(
             }
         }
 
-        // Docked Queue Count Badge (if multiple items are queued/active)
         if (downloadingItems.size > 1) {
             Box(
                 modifier = Modifier

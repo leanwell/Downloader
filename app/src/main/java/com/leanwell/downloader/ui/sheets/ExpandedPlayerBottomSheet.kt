@@ -137,7 +137,6 @@ fun ExpandedPlayerBottomSheet(
                 .padding(bottom = 24.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            // Header Row
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
@@ -185,7 +184,6 @@ fun ExpandedPlayerBottomSheet(
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            // Large Album Art / Video Frame Box
             Box(
                 modifier = Modifier
                     .fillMaxWidth(0.92f)
@@ -220,9 +218,7 @@ fun ExpandedPlayerBottomSheet(
                                 .clip(RoundedCornerShape(24.dp))
                         )
 
-                        // Touch gestures layer: Left 50% (-10s), Right 50% (+10s)
                         Row(modifier = Modifier.fillMaxSize()) {
-                            // Left 50% for double-tap rewind
                             Box(
                                 modifier = Modifier
                                     .weight(1f)
@@ -275,7 +271,6 @@ fun ExpandedPlayerBottomSheet(
                                 }
                             }
 
-                            // Right 50% for double-tap forward
                             Box(
                                 modifier = Modifier
                                     .weight(1f)
@@ -357,7 +352,6 @@ fun ExpandedPlayerBottomSheet(
 
             Spacer(modifier = Modifier.height(20.dp))
 
-            // Track Title & Artist with Marquee Animation on Overflow
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -405,7 +399,6 @@ fun ExpandedPlayerBottomSheet(
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            // Scrubber Slider
             Slider(
                 value = sliderPosition.coerceIn(0f, 1f),
                 onValueChange = {
@@ -449,7 +442,6 @@ fun ExpandedPlayerBottomSheet(
 
             Spacer(modifier = Modifier.height(14.dp))
 
-            // Playback Controls Row
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceEvenly,
@@ -521,7 +513,6 @@ fun ExpandedPlayerBottomSheet(
 
             Spacer(modifier = Modifier.height(18.dp))
 
-            // Playback Speed Selector Row
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -565,7 +556,6 @@ fun ExpandedPlayerBottomSheet(
 
             Spacer(modifier = Modifier.height(18.dp))
 
-            // Open in External App CTA
             ObsidianButton(
                 text = "Open in External Player (VLC / System)",
                 onClick = onOpenInExternalApp,

@@ -78,7 +78,6 @@ fun FrostedBottomNavBar(
     }
 
     val navShape = RoundedCornerShape(24.dp)
-    // Faint diagonal linear gradient border white (20% to 80% opacity)
     val diagonalBorderBrush = Brush.linearGradient(
         colors = listOf(
             Color.White.copy(alpha = 0.20f),
@@ -162,7 +161,6 @@ fun FrostedBottomNavBar(
             val leftOffset = centerX - (currentWidth / 2)
             val topOffset = (52.dp - currentHeight) / 2
 
-            // Liquid morphing indicator pill
             Box(
                 modifier = Modifier
                     .offset(x = leftOffset, y = topOffset)
@@ -172,7 +170,6 @@ fun FrostedBottomNavBar(
                     .background(Color(0xFF0F172A).copy(alpha = 0.08f))
             )
 
-            // Tabs Row
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically
