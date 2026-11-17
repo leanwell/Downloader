@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="docs/logo.png" width="96" alt="Downloader Logo"/>
+
 # Downloader
 
 ### *Universal Media Downloader for Android*
@@ -67,7 +69,7 @@ Grab the latest compiled APK from the [GitHub Releases](https://github.com/leanw
 
 Downloader is engineered with a modern, reactive Kotlin stack leveraging native C/C++ cross-compilations:
 
-- **UI & Presentation**: [Jetpack Compose](https://developer.android.com/jetpack/compose) with Material 3, enhanced with [Liquid Glass](https://github.com/kyant0/liquid-glass) and [Haze](https://github.com/chrisbanes/haze) frosted glass aesthetics.
+- **UI & Presentation**: [Jetpack Compose](https://developer.android.com/jetpack/compose) with Material 3, enhanced with [Liquid Glass](https://github.com/Kyant0/AndroidLiquidGlass) and [Haze](https://github.com/chrisbanes/haze) frosted glass aesthetics.
 - **Asynchronous Architecture**: Kotlin Coroutines, StateFlow, and SharedFlow.
 - **Core Extractor**: [`yt-dlp`](https://github.com/yt-dlp/yt-dlp) running inside the native Android bridge [`io.github.junkfood02.youtubedl-android`](https://github.com/junkfood02/youtubedl-android).
 - **Remuxing & Transcoding**: **[FFmpeg](https://ffmpeg.org/)** (handles dynamic video stream combining, 320 kbps MP3 conversion, and ID3 cover art embedding).
