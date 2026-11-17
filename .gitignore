@@ -21,7 +21,6 @@ directives/
 # Secrets, Keystores & Environment
 .env
 .env.*
-!.env.example
 credentials.json
 token.json
 *.keystore
