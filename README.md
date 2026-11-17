@@ -44,7 +44,7 @@
 - **Automated ID3 Metadata & Album Art**: Automatically extracts artist names, track titles, album info, and embeds high-resolution cover art directly into the output audio file.
 - **Hardware-Backed Android Keystore Encryption**: Social session cookies for YouTube, Facebook, and Instagram are encrypted locally using the hardware-backed **Android Keystore**, ensuring sensitive credentials are never stored in plain text and expire safely after 30 days.
 - **Floating In-App Player (Jetpack Media3 / ExoPlayer)**: Enjoy your downloads directly inside the app with picture-in-picture (PiP), variable speed controls (0.5x to 2x), 10-second seek skips, or hand off playback to external players like VLC or MX Player with a single tap.
-- **In-App Engine Updater**: Keep the core extractor up-to-date with upstream website algorithm changes directly from the app Settings without waiting for full application updates.
+- **In-App Engine Updater**: If a download fails or a website alters its streaming format, navigate to **Settings &rarr; Engine & Updates** and tap **"Check for Engine Updates"** to pull the newest `yt-dlp` core fixes immediately without waiting for a full app update.
 
 ---
 
@@ -105,6 +105,11 @@ Audio tracks are saved to your device's public <code>Music/Downloader/</code> fo
 <details>
 <summary><b>5. Can I run downloads in the background?</b></summary>
 Yes. Downloader runs downloads via a foreground Android service with active notification channels, allowing large queues and playlists to complete uninterrupted while you use other apps or lock your screen.
+</details>
+
+<details>
+<summary><b>6. What should I do if a download fails or an extractor breaks?</b></summary>
+Websites frequently update their video streaming protocols, which can temporarily cause downloads to fail. When this happens, open <b>Settings &rarr; Engine & Updates</b> and tap <b>"Check for Engine Updates"</b>. The app will fetch the latest upstream <code>yt-dlp</code> core binaries and restore downloads immediately without requiring a full APK reinstall.
 </details>
 
 ---
