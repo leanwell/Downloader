@@ -105,9 +105,10 @@ object AppSettings {
             _isParallelDownloads.value = p.getBoolean(KEY_PARALLEL_DOWNLOADS, false)
             _maxParallelCount.value = p.getInt(KEY_MAX_PARALLEL_COUNT, 3)
 
-            // Hardware-backed Keystore security: auto-migrate legacy cookies and purge expired sessions
+            // Hardware-backed Keystore security: auto-migrate legacy cookies, purge expired sessions, clean crash orphans
             SecureCookieVault.migrateLegacyPlaintextCookies(context)
             SecureCookieVault.purgeExpiredSessions(context)
+            SecureCookieVault.cleanupOrphanedEphemeralFiles(context)
 
             refreshEngineVersion(context)
             refreshCookiesStatus(context)
@@ -494,7 +495,14 @@ object AppSettings {
 
     /**
      * Legacy compatibility bridge for URL cookie checking.
+     *
+     * @deprecated Callers should not access raw encrypted files directly.
+     * Use [SecureCookieVault.withEphemeralCookieFile] for executing tools like yt-dlp.
      */
+    @Deprecated(
+        message = "Do not pass encrypted vault files directly to tools. Use SecureCookieVault.withEphemeralCookieFile instead.",
+        replaceWith = ReplaceWith("SecureCookieVault.hasValidCookies(context, type)")
+    )
     fun getCookiesForUrl(context: Context, url: String): File? {
         val type = getCookieTypeForUrl(url) ?: return null
         return if (SecureCookieVault.hasValidCookies(context, type)) {

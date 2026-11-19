@@ -98,6 +98,9 @@ android {
             useLegacyPackaging = true
         }
     }
+    testOptions {
+        unitTests.isReturnDefaultValues = true
+    }
 }
 
 dependencies {
